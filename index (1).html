@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<style>
+		html,body{
+			margin:0;
+			padding:0;
+			font-family: Calibri;
+		}
+		#main{
+			width:900px;
+			margin:50px auto;
+		}
+	
+		.btnGroup button{
+			padding:10px 20px;
+			border:none;
+			background:gray;
+			text-transform: uppercase;
+			color:white;
+		}
+		.btnGroup button:first-child{
+			float:left;
+		}
+		.btnGroup button:last-child{
+			float:right;
+		}
+		.btnGroup{
+			margin-top:10px;
+		}
+	</style>
+</head>
+<body>
+
+
+		<script type="text/javascript">
+			var main_div = document.createElement('DIV');
+			main_div.className = 'main';
+
+			var div1 = document.createElement('DIV');
+			div1.className = 'frame';
+			var image = document.createElement('IMG');
+			image.src = "images/01.jpg";
+			div1.appendChild(image);
+			var div2 = document.createElement('DIV');
+			div2.className = 'desc';
+			var prq = document.createElement('p');
+			var text = document.createTextNode('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quae corporis ullam illo ab at magni deleniti quasi expedita, quis iusto ipsum, perferendis a hic aspernatur autem repudiandae non commodi!');
+			prq.appendChild(text);
+			div2.appendChild(prq);
+
+			var div3 = document.createElement('DIV');
+			div3.className = 'btnGroup';
+			var button1 = document.createElement('BUTTON');
+			var prv = document.createTextNode('PREV');
+			button1.appendChild(prv);
+			var button2 = document.createElement('BUTTON');
+			var next = document.createTextNode('NEXT');
+			button2.appendChild(next);
+			div3.appendChild(button1);
+			div3.appendChild(button2);
+
+			main_div.appendChild(div1);
+			main_div.appendChild(div2);
+			main_div.appendChild(div3);
+			document.body.appendChild(main_div);
+
+
+
+		</script>
+</body>
+</html>
