@@ -14,7 +14,25 @@
 			width:900px;
 			margin:50px auto;
 		}
-	
+		.frame{
+			width:100%;
+			height:400px;
+			overflow: hidden;
+
+		}
+		.frame img{
+			width:100%;
+		}
+		.desc{
+			width:calc(100% - 20px);
+
+			padding:10px;
+			background:lightgray;
+			color:black;
+		}
+		.desc p{
+			margin:0;
+		}
 		.btnGroup button{
 			padding:10px 20px;
 			border:none;
@@ -34,7 +52,20 @@
 	</style>
 </head>
 <body>
+		<div id="main">	
 
+				<div class="frame">
+					<img src="images/01.jpg">
+				</div>
+				<div class="desc">
+					<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quae corporis ullam illo ab at magni deleniti quasi expedita, quis iusto ipsum, perferendis a hic aspernatur autem repudiandae non commodi!</p>
+				</div>
+				<div class="btnGroup">	
+						<button onclick="prev()">Prev</button>
+						<button onclick="next()">Next</button>
+				</div>
+
+		</div>
 
 		<script type="text/javascript">
 			var main_div = document.createElement('DIV');
@@ -57,9 +88,11 @@
 			var button1 = document.createElement('BUTTON');
 			var prv = document.createTextNode('PREV');
 			button1.appendChild(prv);
+			button1.setAttribute('onClick','prev()')
 			var button2 = document.createElement('BUTTON');
 			var next = document.createTextNode('NEXT');
 			button2.appendChild(next);
+			button2.setAttribute('onClick','next()')
 			div3.appendChild(button1);
 			div3.appendChild(button2);
 
@@ -67,6 +100,45 @@
 			main_div.appendChild(div2);
 			main_div.appendChild(div3);
 			document.body.appendChild(main_div);
+
+imageArr=["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg"];
+			descArr=["images 01","images 02","images 03","images 04","images 05"];
+
+
+			imgSource=document.getElementsByTagName('img')[0];
+			descSource=document.getElementsByClassName('desc')[0].getElementsByTagName("p")[0];
+			descSource.innerHTML=descArr[0];
+			//imgSource.setAttribute('src',imageArr[1])
+			imgSource.src=imageArr[0];
+
+			count=0;
+
+			function prev(){
+
+				
+				count--;
+				if(count<0){
+					count=imageArr.length-1;
+				}
+				imgSource.src=imageArr[count];
+				descSource.innerHTML=descArr[count];
+				console.log(count)
+
+			}
+
+			function next(){
+				
+				count++;
+				if(count==imageArr.length){
+					count=0;
+				}
+				imgSource.src=imageArr[count];
+				descSource.innerHTML=descArr[count];
+				console.log(count)
+				
+			}
+
+
 
 
 
